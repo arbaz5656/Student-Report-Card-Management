@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
+    <title>Show Marks</title>
+<style>
+   h1{text-align:center}
+</style>
+</head>
+<body>
+<!--navbar-->
+<div class="container mt-4" >
+<nav class="navbar " style="background-color: #e3f2fd;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="http://127.0.0.1:8000/">Home</a>
+    <form class="d-flex" role="search">
+      <input class="form-control me-2" name="search" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+</div>
+
+<h1>Student Marks</h1>
+
+
+<!--Table code-->
+<div class="container">
+    <h4>Rank:{{current_rank}} </h4>
+    <h4>Total : {{totalmarks.totalmarks}} </h4>
+<table class="table mt-4 table-striped" >
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+
+      <th scope="col">Subject</th>
+      <th scope="col">Marks</th>
+    </tr>
+  </thead>
+  <tbody>
+
+  {% for mark in queryset %}
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+
+
+      <td>{{mark.subject.subject_name}}</td>
+      <td>{{mark.marks}}</td>
+        </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+
+
+</body>
+</html>
